@@ -1,0 +1,2 @@
+# Transformer-based-Sentiment-Analysis
+This project uses transformer-based models to analyze Amazon food reviews, uncovering customer sentiment to provide insights for improving e-commerce experiences.
