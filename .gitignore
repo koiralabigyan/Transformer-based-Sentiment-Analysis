@@ -27,6 +27,7 @@ share/python-wheels/
 MANIFEST
 
 data/raw
+data/processed/clean_reviews.csv
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
