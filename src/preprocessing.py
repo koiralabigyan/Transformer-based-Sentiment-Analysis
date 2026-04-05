@@ -3,11 +3,12 @@ import os
 import re
 import nltk
 from nltk.corpus import stopwords
-
-# Load dataset
 df = pd.read_csv("data/raw/Reviews.csv")
-
 print("Original dataset shape:", df.shape)
+
+# ---------------------------
+# Sentiment Labelling
+# ---------------------------
 
 # Keep only useful columns
 df = df[['Score', 'Text']]
@@ -38,7 +39,6 @@ print(df['sentiment'].value_counts())
 
 # Save processed file
 df.to_csv("data/processed/clean_reviews.csv", index=False)
-
 print("\nSaved cleaned dataset to data/processed/")
 
 # ---------------------------
