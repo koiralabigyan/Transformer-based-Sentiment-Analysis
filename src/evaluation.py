@@ -4,19 +4,19 @@ import torch
 from sklearn.metrics import classification_report
 import pandas as pd
 
-# Correct the path to the local checkpoint
-checkpoint_path = 'results/transformer_test/checkpoint-15988'  # Updated path
 
-# Load the model and tokenizer from local files (use `local_files_only=True` to prevent internet access)
+checkpoint_path = 'results/transformer_test/checkpoint-15988' 
+
+# Load the model 
 model = DistilBertForSequenceClassification.from_pretrained(checkpoint_path, local_files_only=True)
 tokenizer = DistilBertTokenizerFast.from_pretrained('distilbert-base-uncased')
 
-# Load your test dataset
+# Load test dataset
 test_dataset = Dataset.from_pandas(pd.read_csv("data/processed/clean_reviews.csv"))
 
 # Tokenize the dataset
 def tokenize(batch):
-    # Ensure 'clean_text' is a list of strings (flatten if necessary)
+    # Ensure 'clean_text' is a list of strings 
     if isinstance(batch['clean_text'], list):
         # If it contains lists, flatten the list
         if isinstance(batch['clean_text'][0], list):
@@ -38,8 +38,7 @@ def tokenize(batch):
 tokenized_test_dataset = test_dataset.map(tokenize, batched=True)
 
 # Prepare the test dataset for evaluation
-test_dataset = tokenized_test_dataset  # No need to reference "test" split if it's just the whole dataset
-
+test_dataset = tokenized_test_dataset  
 # Perform inference on the test set
 predictions = []
 true_labels = []

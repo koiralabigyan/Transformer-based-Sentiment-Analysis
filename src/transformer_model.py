@@ -27,8 +27,8 @@ print("Tokenizer loaded successfully!")
 
 # Tokenization function with reduced max_length
 def tokenize(batch):
-    texts = [str(x) for x in batch["clean_text"]]  # Ensure all texts are strings
-    return tokenizer(texts, padding="max_length", truncation=True, max_length=64)  # Reduced max_length
+    texts = [str(x) for x in batch["clean_text"]] 
+    return tokenizer(texts, padding="max_length", truncation=True, max_length=64)  
 
 # Tokenize dataset
 tokenized_dataset = dataset.map(tokenize, batched=True)
@@ -59,16 +59,16 @@ test_dataset.set_format(type="torch", columns=["input_ids", "attention_mask", "l
 # --------------------------
 training_args = TrainingArguments(
     output_dir="results/transformer_test",
-    num_train_epochs=1,                  # Only 1 epoch for testing purposes
-    per_device_train_batch_size=4,       # Reduced batch size for CPU training
+    num_train_epochs=1,                 
+    per_device_train_batch_size=4,       
     per_device_eval_batch_size=4,
-    gradient_accumulation_steps=4,       # Simulate larger batch size (8 in this case)
+    gradient_accumulation_steps=4,      
     logging_steps=10,
     save_steps=50,
     save_total_limit=1,
     learning_rate=5e-5,
     logging_dir="results/logs",
-    report_to="none",                   # Disable external logging
+    report_to="none",                  
 )
 
 # --------------------------
@@ -100,7 +100,7 @@ encodings = tokenizer(
     sample_texts, padding="max_length", truncation=True, max_length=64, return_tensors="pt"
 )
 
-# Perform inference (no gradients required)
+# Perform inference 
 with torch.no_grad():
     outputs = model(**encodings)
     logits = outputs.logits
