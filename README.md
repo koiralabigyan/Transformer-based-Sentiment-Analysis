@@ -1,6 +1,6 @@
-
 # 1. Clean GitHub Project Structure
 
+```text
 sentiment-analysis-nlp/
 │
 ├── data/
@@ -40,14 +40,15 @@ sentiment-analysis-nlp/
 ├── README.md
 ├── .gitignore
 └── LICENSE
-
+```
 
 ---
 
-# 2. .gitignore
+# 2. .gitignore (important)
 
-Created `.gitignore`
+Create `.gitignore`
 
+```text
 __pycache__/
 *.pyc
 *.pyo
@@ -65,9 +66,10 @@ results/models/
 data/raw/
 
 *.log
-
+```
 
 This avoids pushing:
+
 * virtual environments
 * cache files
 * large raw datasets
@@ -77,6 +79,7 @@ This avoids pushing:
 
 # 3. requirements.txt
 
+```text
 pandas
 numpy
 scikit-learn
@@ -86,9 +89,15 @@ torch
 transformers
 datasets
 tqdm
+```
 
 ---
 
+# 4. Professional README.md
+
+Here is a **GitHub-style README** (clean and concise).
+
+---
 
 # Sentiment Analysis using Machine Learning and Transformers
 
@@ -105,6 +114,7 @@ The goal is to compare:
 
 # Project Structure
 
+```
 sentiment-analysis-nlp/
 │
 ├── data/               # raw and processed datasets
@@ -114,23 +124,31 @@ sentiment-analysis-nlp/
 ├── docs/               # report
 ├── README.md
 └── requirements.txt
+```
 
 ---
 
 # Installation
 
 Clone the repository:
-git clone https://github.com/koiralabigyan/Transformer-based-Sentiment-Analysis
+
+```bash
+git clone https://github.com/yourusername/sentiment-analysis-nlp.git
 cd sentiment-analysis-nlp
+```
 
 Create environment and install dependencies:
+
+```bash
 uv venv
 uv pip install -r requirements.txt
+```
 
 or
 
+```bash
 pip install -r requirements.txt
-
+```
 
 ---
 
@@ -145,10 +163,12 @@ The dataset contains product reviews labeled with sentiment:
 | 2     | Positive |
 
 Example columns:
+
+```
 Text
 sentiment
 clean_text
-
+```
 
 ---
 
@@ -156,6 +176,7 @@ clean_text
 
 The project follows this pipeline:
 
+```
 Raw Data
    ↓
 Preprocessing
@@ -167,6 +188,7 @@ Baseline Model (Naive Bayes)
 Transformer Model (DistilBERT)
    ↓
 Evaluation
+```
 
 ---
 
@@ -174,12 +196,15 @@ Evaluation
 
 ## 1 Preprocess Data
 
+```bash
 uv run src/preprocessing.py
+```
 
 Output:
 
+```
 data/processed/clean_reviews.csv
-
+```
 
 ---
 
@@ -187,7 +212,9 @@ data/processed/clean_reviews.csv
 
 Generate TF-IDF features.
 
+```bash
 uv run src/feature_engineering.py
+```
 
 ---
 
@@ -195,12 +222,16 @@ uv run src/feature_engineering.py
 
 Train and evaluate Naive Bayes.
 
+```bash
 uv run src/train_baseline.py
+```
 
 Outputs:
 
+```
 results/metrics/baseline_results.csv
 results/figures/confusion_matrix.png
+```
 
 ---
 
@@ -208,7 +239,9 @@ results/figures/confusion_matrix.png
 
 Train DistilBERT model.
 
+```bash
 uv run src/transformer_model.py
+```
 
 This performs:
 
