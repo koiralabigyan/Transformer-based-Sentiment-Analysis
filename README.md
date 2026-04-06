@@ -10,6 +10,8 @@ sentiment-analysis-nlp/
 │   └── processed/
 │       └── clean_reviews.csv
 │
+├── notebooks/
+│   └── exploration.ipynb
 │
 ├── src/
 │   │
@@ -31,6 +33,8 @@ sentiment-analysis-nlp/
 │   └── models/
 │       └── distilbert_model/
 │
+├── docs/
+│   └── report.pdf
 │
 ├── requirements.txt
 ├── README.md
