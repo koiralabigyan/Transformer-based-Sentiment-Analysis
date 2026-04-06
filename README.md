@@ -93,12 +93,6 @@ tqdm
 
 ---
 
-# 4. Professional README.md
-
-Here is a **GitHub-style README** (clean and concise).
-
----
-
 # Sentiment Analysis using Machine Learning and Transformers
 
 ## Overview
